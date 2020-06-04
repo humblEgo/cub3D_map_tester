@@ -1,8 +1,10 @@
-R 640 480
+R 640 480 1230
 NO ./images/NO.xpm
 SO ./images/SO.xpm 
+11111111 1111111 111111111111
 WE ./images/WE.xpm
 EA ./images/EA.xpm
+S ./images/ITEM.xpm
 F 00,153,15
 C 255,255,255
 
