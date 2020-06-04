@@ -4,7 +4,9 @@
 
 안녕하세요~! 🖐 이 프로그램은 cub3D 프로그램이 [cub3D 프로젝트](https://github.com/moon9ua/42_seoul/wiki/2.-cub3D#cub3d)의 [맵 제약조건](https://github.com/moon9ua/42_seoul/wiki/2.-cub3D#chapter-4-%ED%95%84%EC%88%98-%ED%8C%8C%ED%8A%B8---cub3d) 요구사항을 잘 충족하는지 체크하는데 도움을 주기 위해 만들어졌습니다. 하단 설명을 참고하시어 코드작성 or 동료평가시 활용해보세요 🙂
 
-## 개요
+
+
+## 🍉 개요
 
 - 이 프로그램은 invalid map 파일을 당신의 cub3D 파일에 전달합니다. 
 - 오류가 있는지 확인하기 위해서는 Return 메세지를 직접 확인해주셔야 합니다.
@@ -13,6 +15,8 @@
       1. **segfault, sigabort 등등 예기치 않은 error 메세지가 출력되는 경우**
       2. **cub3D가 작동해버리는 경우**
 - invalid map는 `maps` 디렉토리 안에 있습니다. 참고하여 예외처리 진행하시면 됩니다.
+
+
 
 
 ## 🍉 설치 및 실행
@@ -33,7 +37,7 @@
 
 
 <details>
-    <summary>👉 시작할 때 count down이 거슬릴 경우</summary>
+    <summary>시작할 때 count down이 거슬릴 경우</summary>
     <p> <br>-f 옵션을 넣어서 count down을 생략할 수 있습니다. 
     
     ./test_map_valid_function.sh -f
@@ -43,7 +47,7 @@
 
 
 <details>
-    <summary>👉 실행시 directory tree</summary>
+    <summary>실행시 directory tree</summary>
     <p> <br>결과적으로 test_map_valid_function.sh 의 상위폴더에 cub3D 실행파일이 있으면 됩니다.
     
     
