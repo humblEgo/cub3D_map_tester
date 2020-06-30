@@ -86,7 +86,7 @@ test파일은 'test_{TYPE}{NUMBER}.cub' 형식으로 되어있습니다.
 |            | 범위초과 | 3,4 |     |          |     |                      |
 | player개수 | 0개      |     |     |          |     | 3                    |
 |            | 2개 이상 |     |     |          |     | 2, 13                |
-| open map   | no tab   |     |     |          |     | 4,5,6,7,8,9,10,11,12 |
+| open map   | no tab   |     |     |          |     | 4,5,6,7,8,9,10,11,12,21,22,23,24 |
 |            | with tab |     |     |          |     | 17                   |
 | out of map |          |     |     |          |     | 14, 15               |
 | 맵 위치    |          |     |     |          |     | 16                   |
@@ -105,3 +105,8 @@ ex)
 3. cub3D로 고통받고 계시다면, [taelee42님의 mlx_example](https://github.com/taelee42/mlx_example)을 참고해보세요.
 
 기타 문의할 사항이 있으시다면 Slack ID iwoo로 DM 날려주세요~ :)
+
+## 🍉 기여해주신 분
+
+이 테스터를 만드는데 기여해주신 분들입니다. 기여해주셔서 감사합니다!! 👏👏 
+- [jwon님](https://github.com/jwon42)
