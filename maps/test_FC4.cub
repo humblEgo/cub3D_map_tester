@@ -4,7 +4,7 @@ SO ./images/SO.xpm
 WE ./images/WE.xpm
 EA ./images/EA.xpm
 S ./images/ITEM.xpm
-F 110, 153,15
+F 110,1153,15
 C 255,255,255
 
         1111111111111111111111111
