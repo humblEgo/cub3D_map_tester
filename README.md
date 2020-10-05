@@ -110,7 +110,9 @@ ex)
 
 2. 맵 테스트케이스 추가를 원하신다면 역시 PR이나 ISSUE 남겨주시면 반영하겠습니다.
 
-3. cub3D로 고통받고 계시다면, [taelee42님의 mlx_example](https://github.com/taelee42/mlx_example)을 참고해보세요.
+3. 서브젝트 자체도 완벽하지 않다보니 '어느 수준까지 예외처리해야하는지' 여부를 따로 판단해보시길 추천드립니다. 개인적으로는 동료평가시 디펜스가 가능한지 여부를 기준으로 결정하면 좋지않을까 싶어요 :)
+
+4. cub3D로 고통받고 계시다면, [taelee42님의 mlx_example](https://github.com/taelee42/mlx_example)을 참고해보세요.
 
 기타 문의할 사항이 있으시다면 Slack ID iwoo로 DM 날려주세요~ :)
 
