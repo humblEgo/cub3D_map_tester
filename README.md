@@ -47,8 +47,8 @@
 
 
 <details>
-    <summary>실행시 directory tree</summary>
-    <p> <br>결과적으로 test_map_valid_function.sh 의 상위폴더에 cub3D 실행파일이 있으면 됩니다.
+    <summary>실행시 directory tree (using minilibx_opengl)</summary>
+    <p> <br>결과적으로 test_map_valid_function.sh 의 상위 디렉토리에 cub3D 실행파일이 있으면 됩니다.
     
     
     .
@@ -65,6 +65,27 @@
 </p>   
 </details>
 
+
+
+<details>
+    <summary>실행시 directory tree (using minilibx_mms_20200219_beta)</summary>
+    <p> <br> `test_map_valid_function.sh`과 `libmlx.dylib`을 같은 디렉토리에 위치시킵니다. 또한 그 디렉토리의 상위 디렉토리에 cub3D 실행파일이 위치하면 됩니다.
+    
+    
+    .
+    ├── cub3D
+    ├── _cub3D_map_tester
+    |   ├── test_map_valid_function.sh
+    |   ├── libmlx.dylib
+    |   ├── README.md
+    |   ├── _images
+    |   └── _maps
+    |   ├── ...
+    └── ...
+    
+    
+</p>   
+</details>
 
 
 ## 🍉 TEST COVERAGE
@@ -123,3 +144,4 @@ ex)
 - [eunhkim님](https://github.com/eunhyulkim)
 - [sjaehyeo님](https://github.com/QKRM)
 - [nkang님](https://github.com/nKiNk)
+- eun-park님
