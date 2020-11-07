@@ -77,6 +77,8 @@ fi
 
 echo -e "--------TEST START--------"
 
+cp ../libmlx.dylib .
+
 for i in `seq 1 ${TEST_R_COUNT}`
 do
 	TEST_MAP=test_R${i}.cub
@@ -141,6 +143,8 @@ do
 		echo -e "\n${FAIL_BG}-->FAIL${CLEAR_COLOR}"
 	fi
 done
+
+rm libmlx.dylib
 
 echo -e "\n--------TEST END--------\n"
 echo -e "${END_BG}please check return messages of your program!${CLEAR_COLOR}\n"
