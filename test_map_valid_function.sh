@@ -4,6 +4,7 @@
 
 CUB3D=../cub3D
 MAPS_FOLDER=./maps/
+LIBMLX_DYLIB=libmlx.dylib
 
 MAIN_BG="\033[46;30m"
 ALERT_BG="\033[41;4;30m"
@@ -40,6 +41,28 @@ then
 		echo -e "If you want to skip count down, put command like below"
 		echo -e "${EXAMPLE_BG}./test_map_valid_function.sh -f${CLEAR_COLOR}"
 		exit 1
+	fi
+fi
+
+
+if [ ! -e ${LIBMLX_DYLIB} ]
+then
+	echo "Does your program use dynamic mlx library? (y/n)"
+	read answer
+	if [ ${answer} == "y" ]
+	then
+		lib_paths=$(find .. -type f -name ${LIBMLX_DYLIB} | grep ${LIBMLX_DYLIB})
+		if [ "${lib_paths}" ]
+		then
+			for lib_path in ${lib_paths}
+			do
+				echo "I'll copy your ${lib_path} to this directory."
+				cp ${lib_path} .
+			done
+		else
+			echo "Hmm? I can't find your mlx library.. Make sure the ${LIBMLX_DYLIB} exists properly!"
+			exit 1
+		fi
 	fi
 fi
 
