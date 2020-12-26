@@ -129,7 +129,8 @@ ex)
 
 4. cub3D로 고통받고 계시다면, [taelee42님의 mlx_example](https://github.com/taelee42/mlx_example)을 참고해보세요.
 
-기타 문의할 사항이 있으시다면 Slack ID iwoo로 DM 날려주세요~ :)
+기타 문의할 사항이 있으시다면 Slack ID iwoo로 DM 날려주세요~
+혹시 이 테스터가 도움이 되셨다면 star 하나씩 눌러주시면 소소하게 기쁠 것 같습니다, 감사합니다~! :)
 
 ## 🍉 기여해주신 분
 
@@ -140,3 +141,4 @@ ex)
 - [sjaehyeo님](https://github.com/QKRM)
 - [nkang님](https://github.com/nKiNk)
 - [eun-park님](https://github.com/p-eye)
+- [ykoh님](https://github.com/kohyounghwan)
