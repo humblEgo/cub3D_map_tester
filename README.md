@@ -12,8 +12,9 @@
 - 오류가 있는지 확인하기 위해서는 Return 메세지를 직접 확인해주셔야 합니다.
   - 만약 예외처리가 잘 되어있다면, 당신이 의도한 방식대로 error 메세지를 출력할 거에요.
   - **만약 예외처리가 잘 되어있지 않다면, 아래 두가지 동작이 예상됩니다.**
-    1. **segfault, sigabort 등등 예기치 않은 error 메세지가 출력되는 경우** (`valgrind`가 설치되어 있다면, `leaks` 디렉토리에 로그가 쌓을 수 있습니다!)
+    1. **segfault, sigabort 등등 예기치 않은 error 메세지가 출력되는 경우**
     2. **cub3D가 작동해버리는 경우**
+  - 단, `valgrind`가 설치되어 있다면, `leaks` 디렉토리에 로그 쌓을 수 있습니다. 옵션을 선택해보세요 :)
 - invalid map는 `maps` 디렉토리 안에 있습니다. 참고하여 예외처리 진행하시면 됩니다.
 
 ## 🍉 설치 및 실행
@@ -136,10 +137,13 @@ ex)
 
 이 테스터를 만드는데 기여해주신 분들입니다. 기여해주셔서 감사합니다!! 👏👏
 
+🇰🇷
 - [jwon님](https://github.com/jwon42)
 - [eunhkim님](https://github.com/eunhyulkim)
 - [sjaehyeo님](https://github.com/QKRM)
 - [nkang님](https://github.com/nKiNk)
 - [eun-park님](https://github.com/p-eye)
 - [ykoh님](https://github.com/kohyounghwan)
+
+🇫🇷
 - [bahaas](https://github.com/Korkrane)
