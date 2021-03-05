@@ -4,6 +4,7 @@
 
 CUB3D=../cub3D
 MAPS_FOLDER=./maps/
+LEAKS_FOLDER=leaks
 LIBMLX_DYLIB=libmlx.dylib
 
 MAIN_BG="\033[46;30m"
@@ -15,18 +16,17 @@ END_BG="\033[41;5;30m"
 CLEAR_COLOR="\033[m"
 
 # Meaning of test_{blabla}
-# R : Rendering size info
-# W : Wall texture info
-# FC : Floor and ceiling info
-# MAP : Map factor info
-# I : Item info
+# R : Rendering size info		--> 8 tests
+# W : Wall texture info			-->	7 tests
+# FC : Floor and ceiling info	--> 13 tests
+# MAP : Map factor info			--> 33 tests
+# I : Item info 				--> 7 tests
 
-
-TEST_R_COUNT=8
-TEST_W_COUNT=7
-TEST_FC_COUNT=13
-TEST_MAP_COUNT=33
-TEST_I_COUNT=7
+TEST_COUNT=(8 7 13 33 7)
+VALGRIND=false
+ALL_LEAKS=false
+RESULT=0
+TEST_NB=68
 
 if [ $# -gt 1 ]
 then
@@ -66,6 +66,24 @@ then
 	fi
 fi
 
+echo "Do you have valgrind installed? (y/n)"
+read answer
+if [ ${answer} == "y" ]
+then
+	VALGRIND=true
+	mkdir leaks
+fi
+
+if [ ${VALGRIND} == true ]
+then
+	echo "Set leaks strictness to the maximum? (y/n)"
+	read answer
+	if [ ${answer} == "y" ]
+	then
+		ALL_LEAKS=true
+	fi
+fi
+
 
 if [ ! -e ${CUB3D} ]
 then
@@ -85,86 +103,68 @@ if [ $# -eq 1 ] && [ $1 == "-f" ]
 then
 	echo "Skip count down"
 else
-	sleep 1
-	echo "5"
-	sleep 1
-	echo "4"
-	sleep 1
-	echo "3"
-	sleep 1
-	echo "2"
-	sleep 1
-	echo "1"
-	sleep 1
+	for i in {5..0}
+	do
+		sleep 1
+		echo "$i"
+	done
 fi
 
 echo -e "--------TEST START--------"
 
-for i in `seq 1 ${TEST_R_COUNT}`
-do
-	TEST_MAP=test_R${i}.cub
-	echo -e "\n\t\t${MAIN_BG}${TEST_MAP}${CLEAR_COLOR}\n"
-	${CUB3D} ${MAPS_FOLDER}${TEST_MAP}
-	if [ $? ]
-	then
-		echo -e "\n${SUCCESS_BG}-->PASS${CLEAR_COLOR}"
-	else
-		echo -e "\n${FAIL_BG}-->FAIL${CLEAR_COLOR}"
-	fi
-done
+launch_test()
+{
+	for i in `seq 1 $2`
+	do
+		TEST_MAP=test_$1${i}.cub
+		echo -e "\n\t\t${MAIN_BG}${TEST_MAP}${CLEAR_COLOR}\n"
+		if [ ${VALGRIND} = true ]
+		then
+			valgrind --leak-check=full --show-leak-kinds=all --log-file="${LEAKS_FOLDER}/leaks_test_$1${i}.txt" ${CUB3D} ${MAPS_FOLDER}${TEST_MAP}
+			grep total ${LEAKS_FOLDER}/leaks_test_$1${i}.txt | cut -c 13-
+			echo -e "\n${MAIN_BG}${TEST_MAP}${CLEAR_COLOR}\n" >> ${LEAKS_FOLDER}/all_test.txt
+			grep total ${LEAKS_FOLDER}/leaks_test_$1${i}.txt | cut -c 13- >> ${LEAKS_FOLDER}/all_test.txt
+		else
+			${CUB3D} ${MAPS_FOLDER}${TEST_MAP}
+		fi
+		if [ ${ALL_LEAKS} = true ]
+		then
+			TOTAL_ALLOC=$(grep total ${LEAKS_FOLDER}/leaks_test_$1${i}.txt | cut -d ' ' -f 7)
+			TOTAL_FREE=$(grep total ${LEAKS_FOLDER}/leaks_test_$1${i}.txt | cut -d ' ' -f 9)
+			if [ $? ]
+				then
+					if [ ${TOTAL_ALLOC} == ${TOTAL_FREE} ]
+					then
+						echo -e "\n${SUCCESS_BG}-->PASS${CLEAR_COLOR}"
+						RESULT=$(($RESULT+1))
+					else
+						echo -e "\n${FAIL_BG}-->LEAKS${CLEAR_COLOR}"
+					fi
+			fi
+		else
+			if [ $? ]
+				then
+					echo -e "\n${SUCCESS_BG}-->PASS${CLEAR_COLOR}"
+					RESULT=$(($RESULT+1))
+				else
+					echo -e "\n${FAIL_BG}-->FAIL${CLEAR_COLOR}"
+			fi
+		fi
+	done
+}
 
-for i in `seq 1 ${TEST_W_COUNT}`
-do
-	TEST_MAP=test_W${i}.cub
-	echo -e "\n\t\t${MAIN_BG}${TEST_MAP}${CLEAR_COLOR}\n"
-	${CUB3D} ${MAPS_FOLDER}${TEST_MAP}
-	if [ $? ]
-	then
-		echo -e "\n${SUCCESS_BG}-->PASS${CLEAR_COLOR}"
-	else
-		echo -e "\n${FAIL_BG}-->FAIL${CLEAR_COLOR}"
-	fi
-done
+launch_test "R" ${TEST_COUNT[0]}
+launch_test "W" ${TEST_COUNT[1]}
+launch_test "FC" ${TEST_COUNT[2]}
+launch_test "MAP" ${TEST_COUNT[3]}
+launch_test "I" ${TEST_COUNT[4]}
 
-for i in `seq 1 ${TEST_FC_COUNT}`
-do
-	TEST_MAP=test_FC${i}.cub
-	echo -e "\n\t\t${MAIN_BG}${TEST_MAP}${CLEAR_COLOR}\n"
-	${CUB3D} ${MAPS_FOLDER}${TEST_MAP}
-	if [ $? ]
-	then
-		echo -e "\n${SUCCESS_BG}-->PASS${CLEAR_COLOR}"
-	else
-		echo -e "\n${FAIL_BG}-->FAIL${CLEAR_COLOR}"
-	fi
-done
-
-for i in `seq 1 ${TEST_MAP_COUNT}`
-do
-	TEST_MAP=test_MAP${i}.cub
-	echo -e "\n\t\t${MAIN_BG}${TEST_MAP}${CLEAR_COLOR}\n"
-	${CUB3D} ${MAPS_FOLDER}${TEST_MAP}
-	if [ $? ]
-	then
-		echo -e "\n${SUCCESS_BG}-->PASS${CLEAR_COLOR}"
-	else
-		echo -e "\n${FAIL_BG}-->FAIL${CLEAR_COLOR}"
-	fi
-done
-
-for i in `seq 1 ${TEST_I_COUNT}`
-do
-	TEST_MAP=test_I${i}.cub
-	echo -e "\n\t\t${MAIN_BG}${TEST_MAP}${CLEAR_COLOR}\n"
-	${CUB3D} ${MAPS_FOLDER}${TEST_MAP}
-	if [ $? ]
-	then
-		echo -e "\n${SUCCESS_BG}-->PASS${CLEAR_COLOR}"
-	else
-		echo -e "\n${FAIL_BG}-->FAIL${CLEAR_COLOR}"
-	fi
-done
-
+if [ ${RESULT} -eq ${TEST_NB} ]
+then
+	echo -e "\n${SUCCESS_BG}$RESULT/$TEST_NB You passed all tests${CLEAR_COLOR}"
+else
+	echo -e "\n${FAIL_BG}$RESULT/$TEST_NB$ You failed some tests{CLEAR_COLOR}"
+fi
 echo -e "\n--------TEST END--------\n"
 echo -e "${END_BG}please check return messages of your program!${CLEAR_COLOR}\n"
 echo -e "If you want to skip count down next time, put command like below!"
