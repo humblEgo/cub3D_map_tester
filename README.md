@@ -128,7 +128,9 @@ ex)
 
 3. 서브젝트 자체도 완벽하지 않다보니 '어느 수준까지 예외처리해야하는지' 여부를 따로 판단해보시길 추천드립니다. 개인적으로는 동료평가시 디펜스가 가능한지 여부를 기준으로 결정하면 좋지않을까 싶어요 :)
 
-4. cub3D로 고통받고 계시다면, [taelee42님의 mlx_example](https://github.com/taelee42/mlx_example)을 참고해보세요.
+4. cub3D로 고통받고 계시다면, 아래 두 링크를 참고해주세요! 
+  - [taelee42님의 mlx_example](https://github.com/taelee42/mlx_example)  
+  - [yohlee님의 Porting by Lode's Computer Graphics Tutorial](https://github.com/l-yohai/cub3d)
 
 기타 문의할 사항이 있으시다면 Slack ID iwoo로 DM 날려주세요~
 혹시 이 테스터가 도움이 되셨다면 star 하나씩 눌러주시면 소소하게 기쁠 것 같습니다, 감사합니다~! :)
