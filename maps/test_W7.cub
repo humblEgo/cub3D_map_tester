@@ -1,7 +1,7 @@
 R 640 480
 NO ./images/NO.xpm
 WE
-SO ./images/SO.xpm 
+SO ./images/SO.xpm
 EA ./images/EA.xpm
 S ./images/ITEM.xpm
 F 00,153,15
