@@ -1,6 +1,6 @@
 R 640 480r
 NO ./images/NO.xpm
-SO ./images/SO.xpm 
+SO ./images/SO.xpm
 WE ./images/WE.xpm
 EA ./images/EA.xpm
 S ./images/ITEM.xpm
