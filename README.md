@@ -146,6 +146,7 @@ ex)
 - [nkang님](https://github.com/nKiNk)
 - [eun-park님](https://github.com/p-eye)
 - [ykoh님](https://github.com/kohyounghwan)
+- [yeslee-v님](https://github.com/yeslee-v)
 
 🇫🇷
 - [bahaas](https://github.com/Korkrane)
