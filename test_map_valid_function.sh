@@ -18,15 +18,15 @@ CLEAR_COLOR="\033[m"
 # Meaning of test_{blabla}
 # R : Rendering size info		--> 8 tests
 # W : Wall texture info			-->	7 tests
-# FC : Floor and ceiling info	--> 13 tests
+# FC : Floor and ceiling info	--> 14 tests
 # MAP : Map factor info			--> 33 tests
 # I : Item info 				--> 7 tests
 
-TEST_COUNT=(8 7 13 33 7)
+TEST_COUNT=(8 7 14 33 7)
 VALGRIND=false
 ALL_LEAKS=false
 RESULT=0
-TEST_NB=68
+TEST_NB=69
 
 if [ $# -gt 1 ]
 then
