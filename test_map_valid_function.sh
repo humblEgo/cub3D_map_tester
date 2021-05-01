@@ -85,7 +85,7 @@ then
 fi
 
 
-if [ ! -e ${CUB3D} ]
+if [ ! -e ${CUB3D} ] || [ -d ${CUB3D} ]
 then
 	echo -e "\n\t\t${ALERT_BG}Please check if the cub3D file exists in the parent directory${CLEAR_COLOR}"
 	exit 1
