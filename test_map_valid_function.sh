@@ -18,15 +18,15 @@ CLEAR_COLOR="\033[m"
 # Meaning of test_{blabla}
 # R : Rendering size info		--> 8 tests
 # W : Wall texture info			-->	7 tests
-# FC : Floor and ceiling info	--> 13 tests
-# MAP : Map factor info			--> 33 tests
+# FC : Floor and ceiling info	--> 14 tests
+# MAP : Map factor info			--> 34 tests
 # I : Item info 				--> 7 tests
 
-TEST_COUNT=(8 7 13 33 7)
+TEST_COUNT=(8 7 14 34 7)
 VALGRIND=false
 ALL_LEAKS=false
 RESULT=0
-TEST_NB=68
+TEST_NB=70
 
 if [ $# -gt 1 ]
 then
@@ -85,7 +85,7 @@ then
 fi
 
 
-if [ ! -e ${CUB3D} ]
+if [ ! -e ${CUB3D} ] || [ -d ${CUB3D} ]
 then
 	echo -e "\n\t\t${ALERT_BG}Please check if the cub3D file exists in the parent directory${CLEAR_COLOR}"
 	exit 1
