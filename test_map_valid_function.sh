@@ -16,17 +16,15 @@ END_BG="\033[41;5;30m"
 CLEAR_COLOR="\033[m"
 
 # Meaning of test_{blabla}
-# R : Rendering size info		--> 8 tests
 # W : Wall texture info			-->	7 tests
 # FC : Floor and ceiling info	--> 14 tests
-# MAP : Map factor info			--> 34 tests
-# I : Item info 				--> 7 tests
+# MAP : Map factor info			--> 35 tests
 
-TEST_COUNT=(8 7 14 34 7)
+TEST_COUNT=(7 14 35)
 VALGRIND=false
 ALL_LEAKS=false
 RESULT=0
-TEST_NB=70
+TEST_NB=56
 
 if [ $# -gt 1 ]
 then
@@ -153,17 +151,15 @@ launch_test()
 	done
 }
 
-launch_test "R" ${TEST_COUNT[0]}
-launch_test "W" ${TEST_COUNT[1]}
-launch_test "FC" ${TEST_COUNT[2]}
-launch_test "MAP" ${TEST_COUNT[3]}
-launch_test "I" ${TEST_COUNT[4]}
+launch_test "W" ${TEST_COUNT[0]}
+launch_test "FC" ${TEST_COUNT[1]}
+launch_test "MAP" ${TEST_COUNT[2]}
 
 if [ ${RESULT} -eq ${TEST_NB} ]
 then
 	echo -e "\n${SUCCESS_BG}$RESULT/$TEST_NB You passed all tests${CLEAR_COLOR}"
 else
-	echo -e "\n${FAIL_BG}$RESULT/$TEST_NB$ You failed some tests{CLEAR_COLOR}"
+	echo -e "\n${FAIL_BG}$RESULT/$TEST_NB$ You failed some tests${CLEAR_COLOR}"
 fi
 echo -e "\n--------TEST END--------\n"
 echo -e "${END_BG}please check return messages of your program!${CLEAR_COLOR}\n"
