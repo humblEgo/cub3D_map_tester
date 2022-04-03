@@ -16,11 +16,9 @@ END_BG="\033[41;5;30m"
 CLEAR_COLOR="\033[m"
 
 # Meaning of test_{blabla}
-# R : Rendering size info		--> 0 tests
 # W : Wall texture info			-->	7 tests
 # FC : Floor and ceiling info	--> 14 tests
-# MAP : Map factor info			--> 34 tests
-# I : Item info 				--> 0 tests
+# MAP : Map factor info			--> 35 tests
 
 TEST_COUNT=(7 14 35)
 VALGRIND=false
