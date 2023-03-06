@@ -1,4 +1,4 @@
-#! /bin/bash
+#!/bin/bash
 
 #../cub3D ./maps/map_no_texture.cub
 
@@ -28,15 +28,15 @@ TEST_NB=56
 
 if [ $# -gt 1 ]
 then
-	echo -e "${ALERT_BG}Not valid arguments${CLEAR_COLOR}"
+	echo -e "${ALERT_BG}Invalid arguments${CLEAR_COLOR}"
 	exit 1
 elif [ $# -eq 1 ]
 then
 	if [ $1 != "-f" ]
 	then
 		echo -e "This shellscript only have '-f' option now."
-		echo -e "'-f' option let skip count down before test start."
-		echo -e "If you want to skip count down, put command like below"
+		echo -e "'-f' option allows you to skip the count down before the test starts."
+		echo -e "If you wish to skip the count down, run the script with the -f flag"
 		echo -e "${EXAMPLE_BG}./test_map_valid_function.sh -f${CLEAR_COLOR}"
 		exit 1
 	fi
@@ -69,7 +69,7 @@ read answer
 if [ ${answer} == "y" ]
 then
 	VALGRIND=true
-	mkdir leaks
+	mkdir -p leaks
 fi
 
 if [ ${VALGRIND} == true ]
@@ -85,7 +85,7 @@ fi
 
 if [ ! -e ${CUB3D} ] || [ -d ${CUB3D} ]
 then
-	echo -e "\n\t\t${ALERT_BG}Please check if the cub3D file exists in the parent directory${CLEAR_COLOR}"
+	echo -e "\n\t\t${ALERT_BG}Please check if the cub3D executable exists in the parent directory${CLEAR_COLOR}"
 	exit 1
 else
 	echo -e "\n\t\t${MAIN_BG}cub3D file exists${CLEAR_COLOR}"
@@ -95,11 +95,11 @@ echo -e "\n${ALERT_BG}There are not valid maps for test.${CLEAR_COLOR} During te
 echo -e "If your program makes a window and put any image, your program is not handilng that map exception.\n"
 echo -e "If your program returns unexpected error messages, such as segfault, abort, etc..,\n" 
 echo -e "your program is not handilng that map exception too.\n"
-echo -e "So ${ALERT_BG}please check return messages of your program! :)${CLEAR_COLOR}\n\n"
+echo -e "So ${ALERT_BG}please check the return messages of your program! :)${CLEAR_COLOR}\n\n"
 
 if [ $# -eq 1 ] && [ $1 == "-f" ]
 then
-	echo "Skip count down"
+	echo "Skipped count down"
 else
 	for i in {5..0}
 	do
@@ -162,8 +162,8 @@ else
 	echo -e "\n${FAIL_BG}$RESULT/$TEST_NB$ You failed some tests${CLEAR_COLOR}"
 fi
 echo -e "\n--------TEST END--------\n"
-echo -e "${END_BG}please check return messages of your program!${CLEAR_COLOR}\n"
-echo -e "If you want to skip count down next time, put command like below!"
+echo -e "${END_BG}please check the return messages of your program!${CLEAR_COLOR}\n"
+echo -e "If you want to skip the count down next time, run the script with the -f flag!"
 echo -e "${EXAMPLE_BG}./test_map_valid_function.sh -f${CLEAR_COLOR}\n"
 
 echo -e "If you want to see coverage of test cases, contact link below"
